@@ -13,7 +13,7 @@ projects: [spring-cloud, spring-cloud-netflix]
 
 你将建立 https://github.com/spring-cloud/spring-cloud-netflix[Netflix Eureka 服务注册] 然后构建一个客户端，既注册自己，又使用注册中心来解析自己的主机。服务注册中心是有用的,因为它使客户端负载均衡,消费者不需要DNS就解耦了服务提供者。
 
-== What you'll need
+== 你需要什么
 
 :java_version: 1.8
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
@@ -22,11 +22,11 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 
 [[reveal-gradle]]
 [.reveal-gradle]
-== Build with Gradle
+== 使用Gradle构建
 
 [[scratch]]
 [.use-gradle]
-== Build with Gradle
+== 使用Gradle构建
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro.adoc[]
 
@@ -52,11 +52,11 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 
 [[reveal-maven]]
 [.reveal-maven]
-== Build with Maven
+== 使用Maven构建
 
 [[use-maven]]
 [.use-maven]
-== Build with Maven
+== 使用Maven构建
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro_maven.adoc[]
 
