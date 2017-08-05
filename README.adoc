@@ -16,9 +16,9 @@ projects: [spring-cloud, spring-cloud-netflix]
 == What you'll need
 
 :java_version: 1.8
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 [[reveal-gradle]]
 [.reveal-gradle]
@@ -28,27 +28,27 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [.use-gradle]
 == Build with Gradle
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_both_builds.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_both_builds.adoc[]
 
 `eureka-service/build.gradle`
 // AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/eureka-service/build.gradle[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/eureka-service/build.gradle[]
 ----
 
 `eureka-client/build.gradle`
 // AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/eureka-client/build.gradle[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/eureka-client/build.gradle[]
 ----
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
 
 [[reveal-maven]]
 [.reveal-maven]
@@ -58,25 +58,25 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [.use-maven]
 == Build with Maven
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro_maven.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro_maven.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
 `eureka-service/pom.xml`
 [source,xml]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/eureka-service/pom.xml[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/eureka-service/pom.xml[]
 ----
 
 `eureka-client/pom.xml`
 [source,xml]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/eureka-client/pom.xml[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/eureka-client/pom.xml[]
 ----
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/hide-show-sts.adoc[]
 
 
 [[initial]]
@@ -122,14 +122,14 @@ include::complete/eureka-client/src/main/java/hello/EurekaClientApplication.java
 include::complete/eureka-client/src/main/resources/bootstrap.properties[]
 ----
 
-The `eureka-client` defines a Spring MVC REST endpoint, `ServiceInstanceRestController`, that returns an enumeration of all the `ServiceInstance` instances registered in the registry at  `http://localhost:8080/service-instances/a-bootiful-client`. Consult the https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service]  guide to learn more about building REST services with Spring MVC and Spring Boot.
+ `eureka-client` 定义了一个Spring MVC REST 终点， `ServiceInstanceRestController` ，这个终点返回所有注册在 `http://localhost:8080/service-instances/a-bootiful-client`的服务实例枚举。请参考 http://knos.top/guides/gs/rest-service/[Building a RESTful Web Service] 指引了解更多关于如何使用 Spring MVC 和 Spring Boot构建RESt服务的。
 
 == 测试应用
 
-Test the end-to-end result by starting the `eureka-service` first and then, once loaded, starting the `eureka-client`. The `eureka-client` will take about a minute to register itself in the registry and to refresh its own list of registered instances from the registry. All of these thresholds are configurable. Visit the `eureka-client` in the browser, `http://localhost:8080/service-instances/a-bootiful-client`. There, you should see the `ServiceInstance` for the `eureka-client` reflected in the response.
+通过启动 `eureka-service` ，加载好之后，再启动 `eureka-client` 来测试端到端结果。 `eureka-client` 需要大约一分钟的时间在注册中心注册自己，并在注册中心中刷新自己的注册实例列表。所有这些阈值配置，通过浏览器访问 `eureka-client` 的 `http://localhost:8080/service-instances/a-bootiful-client` 。在那里，你应该看到返回的响应中有 `eureka-client` 的 `ServiceInstance` 。
 
 
 == 总结
-Congratulations! You've just used Spring to stand up a Netflix Eureka service registry and to use that registry in a client application.
+祝贺你!您刚刚使用Spring来支持Netflix Eureka服务注册中心，并在客户机应用程序中使用该注册注册中心。
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]
