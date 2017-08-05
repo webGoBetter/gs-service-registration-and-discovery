@@ -7,11 +7,11 @@ projects: [spring-cloud, spring-cloud-netflix]
 :source-highlighter: prettify
 :project_id: gs-service-registration-and-discovery
 
-This guide walks you through the process of standing up and consuming the Netflix Eureka service registry.om
+本指南将带你一步一步建立和消费 Netflix Eureka的服务注册中心.
 
-== What you'll build
+== 你将构建什么
 
-You'll setup a https://github.com/spring-cloud/spring-cloud-netflix[Netflix Eureka service registry] and then build a client that both registers itself with the registry and uses it to resolve its own host. A service registry is useful because it enables client-side load-balancing and decouples service providers from consumers without the need for DNS.
+你将建立 https://github.com/spring-cloud/spring-cloud-netflix[Netflix Eureka 服务注册] 然后构建一个客户端，既注册自己，又使用注册表来解析自己的主机。服务注册中心是有用的,因为它使客户端负载均衡,消费者不需要DNS就解耦了服务提供者。
 
 == What you'll need
 
