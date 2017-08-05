@@ -122,7 +122,7 @@ include::complete/eureka-client/src/main/java/hello/EurekaClientApplication.java
 include::complete/eureka-client/src/main/resources/bootstrap.properties[]
 ----
 
- `eureka-client` 定义了一个Spring MVC REST 终点， `ServiceInstanceRestController` ，这个终点返回所有注册在 `http://localhost:8080/service-instances/a-bootiful-client`的服务实例枚举。请参考 http://knos.top/guides/gs/rest-service/[Building a RESTful Web Service] 指引了解更多关于如何使用 Spring MVC 和 Spring Boot构建RESt服务的。
+`eureka-client` 定义了一个Spring MVC REST 终点， `ServiceInstanceRestController` ，这个终点返回所有注册在 `http://localhost:8080/service-instances/a-bootiful-client`的服务实例枚举。请参考 http://knos.top/guides/gs/rest-service/[Building a RESTful Web Service] 指引了解更多关于如何使用 Spring MVC 和 Spring Boot构建RESt服务的。
 
 == 测试应用
 
