@@ -130,6 +130,6 @@ include::complete/eureka-client/src/main/resources/bootstrap.properties[]
 
 
 == 总结
-祝贺你!您刚刚使用Spring来支持Netflix Eureka服务注册中心，并在客户机应用程序中使用该注册注册中心。
+祝贺你!您刚刚使用Spring来支持Netflix Eureka服务注册中心，并在客户端应用程序中使用该注册注册中心。
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]
