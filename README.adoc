@@ -11,7 +11,7 @@ projects: [spring-cloud, spring-cloud-netflix]
 
 == 你将构建什么
 
-你将建立 https://github.com/spring-cloud/spring-cloud-netflix[Netflix Eureka 服务注册] 然后构建一个客户端，既注册自己，又使用注册表来解析自己的主机。服务注册中心是有用的,因为它使客户端负载均衡,消费者不需要DNS就解耦了服务提供者。
+你将建立 https://github.com/spring-cloud/spring-cloud-netflix[Netflix Eureka 服务注册] 然后构建一个客户端，既注册自己，又使用注册中心来解析自己的主机。服务注册中心是有用的,因为它使客户端负载均衡,消费者不需要DNS就解耦了服务提供者。
 
 == What you'll need
 
@@ -80,8 +80,8 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 
 
 [[initial]]
-== Stand up a Eureka Service Registry
-You'll first need a Eureka Service registry. You can use Spring Cloud's `@EnableEurekaServer` to standup a registry that other applications can talk to. This is a regular Spring Boot application with one annotation added to _enable_ the service registry.
+== 建立一个Eureka服务注册
+您首先需要一个Eureka服务注册中心。你可以用Spring Cloud的 `@EnableEurekaServer` 建立注册中心，它可以和其他应用程序交流。这是一个常规的Spring Boot应用，添加一个注释就 _enable_ 了服务注册中心。
 
 `eureka-service/src/main/java/hello/EurekaServiceApplication.java`
 [source,java]
@@ -89,13 +89,13 @@ You'll first need a Eureka Service registry. You can use Spring Cloud's `@Enable
 include::complete/eureka-service/src/main/java/hello/EurekaServiceApplication.java[]
 ----
 
-When the registry starts up it will complain, with a stacktrace, that there are no replica nodes for the registry to connect to. In a production environment, you will want more than one instance of the registry. For our simple purposes, however, it sufficies to disable the relevant logging.
+当注册中心启动时它会抱怨说：，用一个堆栈，没有注册中心可以连接的副本节点。在生产环境中，您将需要多个注册中心实例。然而，为了简单，它可以禁用相关日志。
 
-By default, the registry will _also_ attempt to register itself, so you'll need to disable that, as well.
+默认情况下，注册中心将 _也_ 试图登记本身，所以你也需要禁用这个功能。
 
-It's a good convention to put this registry on a separate port when using it locally.
+在本地使用此注册中心时，将其放在单独的端口上是一个很好的约定。
 
-Add some properties to your `eureka-service/src/main/resources/application.properties` to handle all of these requirements.
+将一些属性添加到您的 `eureka-service/src/main/resources/application.properties` ，以处理所有这些需求。
 
 `eureka-service/src/main/resources/application.properties`
 [source,properties]
@@ -104,9 +104,9 @@ include::complete/eureka-service/src/main/resources/application.properties[]
 ----
 
 
-== Talking to the Registry
+== 与注册中心联系
 
-Now that we've stood up a service registry, let's stand up a client that both registers itself with the registry and uses the Spring Cloud `DiscoveryClient` abstraction to interrogate the registry for it's own host and port. The `@EnableDiscoveryClient` activates the Netflix Eureka `DiscoveryClient` implementation. There are other implementations for other service registries like https://www.consul.io/[Hashicorp's Consul] or https://zookeeper.apache.org/[Apache Zookeeper].
+现在我们已经建立了一个服务注册中心，让我们建立一个客户端自己注册到注册中心，然后使用 Spring Cloud `DiscoveryClient` 抽象类去询问注册中心它自己的主机和端口。 `@EnableDiscoveryClient` 激活 Netflix Eureka `DiscoveryClient` 实现类。还有其他服务注册中心的实现：如https://www.consul.io/[Hashicorp's Consul] or https://zookeeper.apache.org/[Apache Zookeeper]。
 
 `eureka-client/src/main/java/hello/EurekaClientApplication.java`
 [source,java]
@@ -114,7 +114,7 @@ Now that we've stood up a service registry, let's stand up a client that both re
 include::complete/eureka-client/src/main/java/hello/EurekaClientApplication.java[]
 ----
 
-Whatever implementation you choose, you'll soon see the `eureka-client` registered under whatever name you specify in the `spring.application.name` property. This property is used a lot in Spring Cloud, often in the earliest phases of a service's configuration. This property is used in service bootstrap and so by convention lives in `eureka-client/src/main/resources/bootstrap.properties`  where it's found _before_ `src/main/resources/application.properties`.
+无论你选择的什么实现，你很快就会看到一个 `eureka-client`被注册了，使用了你在 `spring.application.name` 属性指定的名字，。此属性在 Spring Cloud 中经常使用，通常在服务配置的最早阶段。这个属性是用来服务引导，因此按照惯例放在 `eureka-client/src/main/resources/bootstrap.properties` 文件中，这个文件会比 `src/main/resources/application.properties`  _先_ 读取。
 
 `eureka-client/src/main/resources/bootstrap.properties`
 [source,properties]
@@ -124,12 +124,12 @@ include::complete/eureka-client/src/main/resources/bootstrap.properties[]
 
 The `eureka-client` defines a Spring MVC REST endpoint, `ServiceInstanceRestController`, that returns an enumeration of all the `ServiceInstance` instances registered in the registry at  `http://localhost:8080/service-instances/a-bootiful-client`. Consult the https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service]  guide to learn more about building REST services with Spring MVC and Spring Boot.
 
-== Test the application
+== 测试应用
 
 Test the end-to-end result by starting the `eureka-service` first and then, once loaded, starting the `eureka-client`. The `eureka-client` will take about a minute to register itself in the registry and to refresh its own list of registered instances from the registry. All of these thresholds are configurable. Visit the `eureka-client` in the browser, `http://localhost:8080/service-instances/a-bootiful-client`. There, you should see the `ServiceInstance` for the `eureka-client` reflected in the response.
 
 
-== Summary
+== 总结
 Congratulations! You've just used Spring to stand up a Netflix Eureka service registry and to use that registry in a client application.
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
