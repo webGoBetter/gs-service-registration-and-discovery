@@ -106,7 +106,7 @@ include::complete/eureka-service/src/main/resources/application.properties[]
 
 == 与注册中心联系
 
-现在我们已经建立了一个服务注册中心，让我们建立一个客户端自己注册到注册中心，然后使用 Spring Cloud `DiscoveryClient` 抽象类去询问注册中心它自己的主机和端口。 `@EnableDiscoveryClient` 激活 Netflix Eureka `DiscoveryClient` 实现类。还有其他服务注册中心的实现：如https://www.consul.io/[Hashicorp's Consul] or https://zookeeper.apache.org/[Apache Zookeeper]。
+现在我们已经建立了一个服务注册中心，让我们建立一个客户端自己注册到注册中心，然后使用 Spring Cloud `DiscoveryClient` 抽象类去询问注册中心它自己的主机和端口。 `@EnableDiscoveryClient` 激活 Netflix Eureka `DiscoveryClient` 实现类。还有其他服务注册中心的实现：如 https://www.consul.io/[Hashicorp's Consul] or https://zookeeper.apache.org/[Apache Zookeeper]。
 
 `eureka-client/src/main/java/hello/EurekaClientApplication.java`
 [source,java]
